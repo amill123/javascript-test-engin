@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- Include the core AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+
+  </head>
+  <body ng-app="Top25Articles">
+
+        <div class="header">
+            <div class="container">
+                    <h2>Hacker News - Top 25 Articles</h2>
+                    <a href="https://news.ycombinator.com/" id="home"><h2>Return to Home Page</h2></a>
+            </div>
+        </div>
+
+
+        <div class="main" ng-controller = "ArticleController">
+            <div class="container">
+                    <div ng-repeat="article in articles | orderBy: '-score' | limitTo: 25" >
+                        <div class ="article">
+                            <h3 class="title"><span class="index">{{$index + 1}}.</span><a ng-href="{{article.url}}" title="Visit Page">{{article.title}}</a></h1>
+                            <h4 class="author">score: {{article.score}},  by {{article.by}} @ {{article.time * 1000| date: "" }}</h2>
+                            <a ng-href="{{article.url}}" class="url" title="Visit Page">{{article.url}}</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/ArticlesController.js"></script>
+    
+    <!-- Services -->
+    <script src="js/services/articles.js"></script>
+
+  </body>
+</html>
