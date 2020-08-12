@@ -4,7 +4,7 @@
     <link href="css/main.css" rel="stylesheet" />
 
     <!-- Include the core AngularJS library -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 
   </head>
   <body ng-app="Top25Articles">
@@ -19,7 +19,7 @@
 
         <div class="main" ng-controller = "ArticleController">
             <div class="container">
-                    <div ng-repeat="article in articles | orderBy: '-score' | limitTo: 25" >
+                    <div ng-repeat="article in articles" >
                         <div class ="article">
                             <h3 class="title"><span class="index">{{$index + 1}}.</span><a ng-href="{{article.url}}" title="Visit Page">{{article.title}}</a></h1>
                             <h4 class="author">score: {{article.score}},  by {{article.by}} @ {{article.time * 1000| date: "" }}</h2>

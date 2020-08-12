@@ -8,11 +8,12 @@ app.factory('articles', ['$http', '$q', function($http, $q) {
           })
           .then(data => {
             let articleList = [];
-            data.forEach(element => {
-                $http.get(`https://hacker-news.firebaseio.com/v0/item/${element}.json`).then(function(response){
+            for(let i=0; i<25; i++){
+                    $http.get(`https://hacker-news.firebaseio.com/v0/item/${data[i]}.json`).then(function(response){
                     articleList.push(response.data);
                 })
-            })
+            }
+            console.log(articleList);
             return articleList;
           }).then(articleList=>{
               deferred.resolve(articleList);
@@ -24,4 +25,3 @@ app.factory('articles', ['$http', '$q', function($http, $q) {
       }
   }
   }]);
-  
