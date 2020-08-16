@@ -13,4 +13,4 @@ In terms of what the page is supposed to do, it is to show the top 25 articles f
 
 17/08/2020
 //Updated the get query for retrieving the list of article id's to include limitToFirst which is specific to firebase system - which required the inclusion of orderBy.
-Previous attempts to include headers and ?limit=25 did not work - had to access firebase api description for assistance
+Previous attempts to include headers and ?limit=25 did not work - had to access firebase api description for assistance. Howeever, an observation of the returned results (using ?orderBy="$key"&limitToFirst=25) shows that the returned results aren't quite consistent when you load the page multiple times or the same when comparing them to the https://news.ycombinator.com/news website. Depending on how accurate you want the results, you would have to fetch the entire array of 500 ids and then fetch only the first 25 article details.
